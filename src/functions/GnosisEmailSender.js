@@ -11,7 +11,7 @@ const AZURE_EMAIL_CONNECTION_STRING = process.env.AZURE_EMAIL_CONNECTION_STRING;
 const POLLER_WAIT_TIME = 10;  // Polling interval in seconds
 
 app.timer('GnosisEmailSender', {
-    schedule: '* */1 * * * *',  // Every 5 minutes
+    schedule: '0 0 0 * * *',  // Every 5 minutes
     handler: async (myTimer, context) => {
         if (!MONGODB_URI || !DATABASE_NAME || !COLLECTION_NAME || !AZURE_EMAIL_CONNECTION_STRING) {
             context.log.error('Missing one or more required environment variables.');
